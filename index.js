@@ -1,24 +1,28 @@
-let pessoa = { nome: 'Thiago', sobrenome: 'Silva', idade: 27 }
-// let nome = pessoa.nome
-// let idade = pessoa.idade
+// O operador spread (...) no array 'pessoas' expande seus elementos,
+// transformando-os em itens individuais. No console, os valores aparecem separados.
+const pessoas = ['Roberto', 'Ricardo', 'Thiago'];
+console.log(...pessoas); // Roberto Ricardo Thiago
 
-// console.log(nome);
-// console.log(idade);
+// Usando o spread, podemos criar um novo array que combina os elementos
+// de dois arrays existentes, de forma mais legível do que com o método .concat():
+let pessoas1 = ['Roberto', 'Ricardo', 'Raphael'];
+let pessoas2 = ['Thiago', 'Joao', 'Raissa'];
 
-// let {nome, idade , sobrenome } = pessoa
+// Com concat():
+// pessoas1 = pessoas1.concat(pessoas2);
 
-// console.log(nome);
-// console.log(idade);
-// console.log(sobrenome);
+// Com spread, o código é mais limpo e fácil de entender:
+pessoas1 = [...pessoas1, ...pessoas2];
+console.log(pessoas1);
+// Output: ['Roberto', 'Ricardo', 'Raphael', 'Thiago', 'Joao', 'Raissa']
 
-const numeros = [1, 2, 3, 4];
+// Para objetos, o operador spread é usado para criar cópias,
+// preservando os valores do original sem que as alterações na cópia
+// afetem o objeto original.
+const pessoa1 = { nome: 'Roberto', idade: '33' };
 
-const [um, dois, tres, quatro] = numeros
+// Criação de um clone do objeto original
+const objetoClonado = { ...pessoa1 };
 
-console.log(um);
-
-console.log(dois);
-
-console.log(tres);
-
-console.log(quatro);
+console.log(objetoClonado); // { nome: 'Roberto', idade: '33' }
+console.log(pessoa1)
