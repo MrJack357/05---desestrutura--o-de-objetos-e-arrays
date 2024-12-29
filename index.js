@@ -1,28 +1,32 @@
-// O operador spread (...) no array 'pessoas' expande seus elementos,
-// transformando-os em itens individuais. No console, os valores aparecem separados.
-const pessoas = ['Roberto', 'Ricardo', 'Thiago'];
-console.log(...pessoas); // Roberto Ricardo Thiago
+// setTimeout: executa uma função ou código após um tempo específico em milissegundos (ms).
+// Neste exemplo, após 5 segundos (5000ms), a mensagem será exibida em um alerta.
+setTimeout(() => {
+    alert('Olá, seja bem-vindo ao curso de JavaScript');
+}, 5000);
 
-// Usando o spread, podemos criar um novo array que combina os elementos
-// de dois arrays existentes, de forma mais legível do que com o método .concat():
-let pessoas1 = ['Roberto', 'Ricardo', 'Raphael'];
-let pessoas2 = ['Thiago', 'Joao', 'Raissa'];
+// Outro exemplo de setTimeout: 
+// Esta função será executada uma única vez após 4 segundos (4000ms).
+setTimeout(() => {
+    console.log('Executando após 4 segundos');
+}, 4000);
 
-// Com concat():
-// pessoas1 = pessoas1.concat(pessoas2);
+// Este console.log será executado imediatamente porque não depende do setTimeout.
+console.log('Este console.log aparece antes do setTimeout');
 
-// Com spread, o código é mais limpo e fácil de entender:
-pessoas1 = [...pessoas1, ...pessoas2];
-console.log(pessoas1);
-// Output: ['Roberto', 'Ricardo', 'Raphael', 'Thiago', 'Joao', 'Raissa']
+// setInterval: executa uma função repetidamente com um intervalo fixo entre as execuções.
+// Aqui, a mensagem será exibida no console a cada 2 segundos (2000ms).
+const idDoIntervalo = setInterval(() => {
+    console.log('Executando a cada 2 segundos');
+}, 2000);
 
-// Para objetos, o operador spread é usado para criar cópias,
-// preservando os valores do original sem que as alterações na cópia
-// afetem o objeto original.
-const pessoa1 = { nome: 'Roberto', idade: '33' };
+// O identificador do intervalo (idDoIntervalo) é retornado pelo setInterval. 
+// Este valor é necessário para parar o intervalo com clearInterval.
+console.log(idDoIntervalo); // Mostra o identificador do intervalo no console.
 
-// Criação de um clone do objeto original
-const objetoClonado = { ...pessoa1 };
+// clearInterval: interrompe um intervalo em execução. Aqui, estamos cancelando o intervalo imediatamente.
+// Como o clearInterval é chamado antes que o primeiro intervalo se complete, a função dentro do setInterval não será executada.
+clearInterval(idDoIntervalo);
 
-console.log(objetoClonado); // { nome: 'Roberto', idade: '33' }
-console.log(pessoa1)
+// clearTimeout: cancela a execução de uma função agendada com setTimeout.
+// Neste caso, não há um setTimeout ativo para cancelar, então o clearTimeout não terá efeito.
+clearTimeout();
